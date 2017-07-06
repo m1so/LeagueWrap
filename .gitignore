@@ -1,0 +1,6 @@
+composer.lock
+.env.test
+.idea
+vendor
+gen
+
