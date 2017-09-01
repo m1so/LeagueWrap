@@ -18,6 +18,7 @@ use LeagueWrap\RateLimit\VoidRateLimiter;
  *
  * @method Api\Match match()
  * @method Api\League league()
+ * @method Api\Summoner summoner()
  */
 class Client
 {
@@ -90,6 +91,9 @@ class Client
                 break;
             case 'league':
                 $api = new Api\League($this, $this->region);
+                break;
+            case 'summoner':
+                $api = new Api\Summoner($this, $this->region);
                 break;
             case 'spectator':
                 $api = new Api\Spectator($this, $this->region);
