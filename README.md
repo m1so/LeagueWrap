@@ -66,7 +66,10 @@ $api->setAppLimits([
 ], $pool);
 
 // When using Laravel
-$store = app(\Illuminate\Cache\Repository::class)->getStore();
+$store = \Illuminate\Support\Facades\Cache::store()->getStore();
+// .... or by using the Cache Facade
+$store = \Cache::store()->getStore();
+
 $pool = new \Cache\Adapter\Illuminate\IlluminateCachePool($store);
 
 $api->setLimits([
