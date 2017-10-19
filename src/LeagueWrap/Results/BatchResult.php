@@ -41,8 +41,9 @@ class BatchResult implements \ArrayAccess, \Countable, \IteratorAggregate
             return Result::fromPsr7($inspection['value']);
         }, $fulfilled);
         
-        // TODO: Sort the async responses in order they were sent
-        usort($responses, function (Result $a, Result $b) {
+        // TODO: Use the headers to check and sync rate limits
+        $chronologicalResponses = $responses;
+        usort($chronologicalResponses, function (Result $a, Result $b) {
             $aLimit = $a->getAppRateLimit();
             $bLimit = $b->getAppRateLimit();
             
@@ -89,8 +90,8 @@ class BatchResult implements \ArrayAccess, \Countable, \IteratorAggregate
             return $carry.PHP_EOL.
                 "Request:       {$psrResponse->getHeaderLine('X-Request')}".PHP_EOL.
                 "Endpoint:      {$psrResponse->getHeaderLine('X-Endpoint')} ({$psrResponse->getHeaderLine('X-Region')})".PHP_EOL.
-                "Started:       {$psrResponse->getHeaderLine('X-Start')} -> {$psrResponse->getHeaderLine('X-Duration')}s".PHP_EOL.
-                "Ended:         {$psrResponse->getHeaderLine('X-End')}".PHP_EOL.
+                //"Started:       {$psrResponse->getHeaderLine('X-Start')} -> {$psrResponse->getHeaderLine('X-Duration')}s".PHP_EOL.
+                //"Ended:         {$psrResponse->getHeaderLine('X-End')}".PHP_EOL.
                 "App limits:    {$psrResponse->getHeaderLine('X-App-Rate-Limit-Count')} ({$psrResponse->getHeaderLine('X-App-Rate-Limit')})".PHP_EOL.
                 "Method limits: {$psrResponse->getHeaderLine('X-Method-Rate-Limit-Count')} ({$psrResponse->getHeaderLine('X-Method-Rate-Limit')})".
                 PHP_EOL;

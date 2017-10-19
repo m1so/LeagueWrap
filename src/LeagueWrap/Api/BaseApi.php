@@ -73,9 +73,7 @@ abstract class BaseApi
             ->createRequest(
                 'GET',
                 count($options) > 0 ? $uri->withQuery(preg_replace('/%5B[0-9]+%5D/simU', '', http_build_query($options))) : $uri
-            )
-            ->withHeader('X-Endpoint', $endpoint->getName())
-            ->withHeader('X-Region', $endpoint->getRegion()->getName());
+            );
     }
 
     /**
@@ -106,6 +104,7 @@ abstract class BaseApi
                 ->then(function (ResponseInterface $response) use ($endpoint) {
                     return $response
                         ->withHeader('X-Endpoint', $endpoint->getName())
+                        ->withHeader('X-Request', $endpoint->getUrl())
                         ->withHeader('X-Region', $endpoint->getRegion()->getName());
                 });
         }, is_array($endpoints) ? $endpoints : [$endpoints]);
