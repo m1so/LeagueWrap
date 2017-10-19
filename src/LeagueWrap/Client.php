@@ -114,6 +114,9 @@ class Client
             case 'static_data':
                 $api = new Api\StaticData($this, $this->region);
                 break;
+            case 'summoner':
+                $api = new Api\Summoner($this, $this->region);
+                break;
             default:
                 throw new \InvalidArgumentException("Could not create '{$name}' API instance.");
         }
