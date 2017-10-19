@@ -18,6 +18,7 @@ use LeagueWrap\RateLimit\VoidRateLimiter;
  *
  * @method Api\Match match()
  * @method Api\League league()
+ * @method Api\Summoner summoner()
  */
 class Client
 {
