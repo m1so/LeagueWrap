@@ -3,6 +3,16 @@ Simple yet powerful PHP wrapper for [Riot Games API](https://developer.riotgames
 
 The library has been fully rewritten to support v3 of the League of Legends API and adapted to use modern PHP standards such as PSR-4, PSR-6 and PSR-7. Guzzle has been removed in favor of [PHP-HTTP](http://docs.php-http.org/en/latest/), while the caching and rate-limiting backends now fully support PSR-6 through [PHP Cache](http://www.php-cache.com/en/latest/).
 
+Note that the HTTP client is pluggable and must be chosen when installing the library. For example using Guzzle along with LeagueWrap would look like:
+```bash
+composer require \
+    php-http/guzzle6-adapter \
+    php-http/message \
+    guzzlehttp/psr7 \
+    m1so/leaguewrap
+```
+See the [library users](http://docs.php-http.org/en/latest/httplug/users.html#details) section for more information.
+
 - [Features](#features)
 - [Example](#example)
 - [Rate limiting and Caching](#rate-limiting-and-caching)
