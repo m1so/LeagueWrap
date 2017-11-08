@@ -25,4 +25,14 @@ class Match extends BaseApi
     {
         return $this->byIds($ids);
     }
+    
+    public function getRecentMatchListByAccountId(array $accountIds)
+    {
+        return $this->getAsync($this->createEndpointsFromIds($accountIds, MatchRecentMatchlistByAccountId::class));
+    }
+
+    public function getMatchListByAccountId(array $accountIds)
+    {
+        return $this->getAsync($this->createEndpointsFromIds($accountIds, MatchMatchlistByAccountId::class));
+    }
 }
