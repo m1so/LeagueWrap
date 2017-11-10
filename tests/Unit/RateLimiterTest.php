@@ -3,7 +3,7 @@
 namespace LeagueWrap\Tests\Unit;
 
 use Cache\Adapter\PHPArray\ArrayCachePool;
-use LeagueWrap\Api\Endpoints\BaseEndpoint;
+use LeagueWrap\Api\BaseEndpoint;
 use LeagueWrap\Exceptions\RateLimitReachedException;
 use LeagueWrap\RateLimit\AppRateLimiter;
 use LeagueWrap\RateLimit\MethodRateLimiter;
