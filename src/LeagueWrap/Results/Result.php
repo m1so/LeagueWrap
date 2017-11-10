@@ -16,7 +16,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @var array
      */
-    protected $content;
+    protected $data;
     
     /**
      * @var ResponseInterface|null
@@ -31,7 +31,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function __construct($content, $response = null)
     {
-        $this->content = $content;
+        $this->data = $content;
         $this->response = $response;
     }
 
@@ -47,9 +47,9 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return mixed
      */
-    public function getContent()
+    public function getData()
     {
-        return $this->content;
+        return $this->data;
     }
 
     /**
@@ -116,7 +116,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function offsetExists($offset)
     {
-        return $this->exists($this->content, $offset);
+        return $this->exists($this->data, $offset);
     }
 
     /**
@@ -128,7 +128,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function offsetGet($offset)
     {
-        return $this->get($this->content, $offset);
+        return $this->get($this->data, $offset);
     }
 
     /**
@@ -141,7 +141,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function offsetSet($offset, $value)
     {
-        $this->set($this->content, $offset, $value);
+        $this->set($this->data, $offset, $value);
     }
 
     /**
@@ -152,7 +152,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      * @return void
      */
     public function offsetUnset($offset) {
-        $this->unset_($this->content, $offset);
+        $this->unset_($this->data, $offset);
     }
 
     /**
@@ -160,7 +160,7 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->content);
+        return new \ArrayIterator($this->data);
     }
 
     /**
@@ -168,6 +168,6 @@ class Result implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function count()
     {
-        return count($this->content);
+        return count($this->data);
     }
 }
