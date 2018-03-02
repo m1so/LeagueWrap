@@ -108,4 +108,4 @@ This scenario is not that significant in most cases as requesting multiple same 
 * Should the filesystem cache be used by default or use void?
 
 ---
-PHP LeagueWrap API isn't endorsed by LeagueWrap Games and doesn't reflect the views or opinions of LeagueWrap Games or anyone officially involved in producing or managing League of Legends. League of Legends and LeagueWrap Games are trademarks or registered trademarks of LeagueWrap Games, Inc. League of Legends © LeagueWrap Games, Inc.
+PHP LeagueWrap API isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
